@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <!-- for bootsrape -->
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+    <!-- for css -->
+    <link rel="stylesheet" href="style/index.css" />
+</head>
+
+<body>
+    <div class="container mt-5" id="top_page">
+        <caption>
+            <h2 class="text-center mb-4">Product Management System</h2>
+        </caption>
+
+
+        <input type="text" id="Product_Name" name="Product_Name" class="form-control  my-3" placeholder="Product Name" oninput="  validatename()">
+        <p id="productNameAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1">Product name should include at least 3 letters starting with capital, second name is optional</p>
+
+
+        <div class=" about_price d-flex gap-2 my-3 flex-wrap">
+            <input onkeyup="getTotal()" type="text" name="price" id="price" placeholder="price" class="form-control"oninput=" validatePrice()" >
+            <!-- price alert -->
+            <p id="productPriceAlert" class="text-white bg-danger  d-none  text-center rounded-pill pb-1">Product price must be a  zero or any positive number</p>
+
+            <input onkeyup="getTotal()" type="text" name="taxs" id="taxs" placeholder="taxes" class="form-control"oninput="validateTaxs()">
+            <!-- taxs alert -->
+            <p id="productTaxsAlert" class="text-white bg-danger d-none  text-center rounded-pill pb-1 ">Product taxs  must be a zero or any positive number</p>
+
+            <input onkeyup="getTotal()" type="text" name="ads" id="ads" placeholder="ads" class="form-control"oninput="validateAds()">
+            <!-- ads alert -->
+            <p id="productadsAlert" class="text-white bg-danger d-none  text-center rounded-pill pb-1 ">Product ads  must be a zero  or any positive number</p>
+
+            <input onkeyup="getTotal()" type="text" name="discount" id="discount" placeholder="discount" class="form-control"oninput="validateDiscount()">
+            <!-- discount alert -->
+            <p id="productdiscountAlert" class="text-white bg-danger d-none  text-center rounded-pill pb-1 ">Product discount  must be a zero or any positive number</p>
+
+            <small class="m-auto" id="total"></small>
+        </div>
+
+        <div class="price d-flex">
+
+            </div>
+    
+
+     
+        <input type="text" id="count" placeholder="count" class="form-control " oninput="validateCount()">
+        <p id="productCountAlert" class="text-white bg-danger  d-none  text-center rounded-pill pb-1 mt-3">Product count must be a number</p>
+
+        
+        <input type="text" id="Product_Categorey" name="Product_Categorey" class="form-control my-3" placeholder="Category" oninput="validateCate()">
+        <p id="productCateAlert" class="text-white bg-danger  d-none  text-center rounded-pill pb-1">Product Categorey should include at least 3 letters starting with capital, second name is optional</p>
+
+
+       
+        <button id="add" class="btn  mt-3" onclick="addProduct()" >Add Product<span></span><span></span><span></span><span></span></button>
+        <button id="update" class="btn  mt-3 "onclick="updateProduct()" style="display: none;">UPDATE Product<span></span><span></span><span></span><span></span></button>
+        <button id="Clear" class="btn  mt-3 d-inline-block" onclick="clears()" >clear Data<span></span><span></span><span></span><span></span></button>
+
+    </div>
+
+        <div class="container mx-auto text-center my-5">
+            <input oninput="searchProduct(this.value.toLowerCase())" type="text" name="search"   id="search"  class="mx-auto w-75 form-control " >
+            <button onclick="getSearchMood(this.id)" id="searchtitle"  class="btn btn-outline-primary mt-3">searh by Name</button>
+            <button onclick="getSearchMood(this.id)" id="searchcategorey" class="btn btn-outline-primary ms-2  mt-3">searh by Category</button>
+        </div>
+
+        <div class="d-flex justify-content-center" id="DeleteAll">
+            
+        </div>
+        <button class="btn btn-outline-success position-relative start-50 translate-middle-x mt-3 d-none" onclick="DeleteAllproducts()"  id="areYouSure">I Am Sure Delete All</button>
+
+
+    <div class="container mt-4 mx-auto table-data">
+        <p id="numOfItems" class="text-start text-white  mb-3">Total items in the table: <span class="text-white">No Data</span> </p>
+        <!-- <table class="table text-center table table-dark table-striped  table-hover mt-2">
+            <thead>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>taxs</th>
+                <th>adds</th>
+                <th>discount</th>
+                <th>Total</th>
+                <th>Category</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </thead>
+            <tbody id="tabbleBody">
+            </tbody>
+        </table> -->
+        <table class="table text-center table table-dark table-striped  table-hover mt-2">
+            <thead>
+              <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">taxs</th>
+                <th scope="col">adds</th>
+                <th scope="col">discount</th>
+                <th scope="col">Total</th>
+                <th scope="col">Cate</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody id="tabbleBody">
+         
+
+            </tbody>
+          </table>
+
+
+
+
+
+
+
+
+
+
+
+        <a href="#top_page">        
+            <div class="arrow-up">
+                <img src="index.png" class="rounded-circle"  alt="">
+            </div>
+        </a>
+
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
